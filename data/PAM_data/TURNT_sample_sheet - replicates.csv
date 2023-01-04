@@ -1,0 +1,19 @@
+rep,collection_label,treatment,replicate_notes
+B1,NA,blank,filtered sea water
+B2,NA,blank,filtered sea water
+B3,NA,blank,filtered sea water
+C1,Z5,control,NA
+C2,Z extra,control,NA
+C3,C1,control,NA
+C4,C2,control,NA
+C5,Z1,control,"leftovers from Z1, small thallus lacking receptacles, large thallus with a damaged turban"
+N1,C4,nutrient,NA
+N2,Z2,nutrient,NA
+N3,Z1,nutrient,NA
+N4,C1,nutrient,"leftovers from C1, smaller thallus lacking receptacles and had a 2 branched thallus, lage with immature receptacles"
+N5,Z1,nutrient,"second leftovers from Z1, both thalli small, lacking receptacles"
+R1,L5,recharge,NA
+R2,L4,recharge,NA
+R3,L1,recharge,NA
+R4,L2,recharge,NA
+R5,L3,recharge,NA

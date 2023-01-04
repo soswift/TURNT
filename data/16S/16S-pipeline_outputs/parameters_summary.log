@@ -1,0 +1,22 @@
+database aln                                      : /home/agave/lus_scratch/home/agave/lus_scratch/sparagon/job-4184856909679095315-242ac114-0001-007-cu22_mcr22_misc_july_2022_5ksubsample_08172022/databases/silva.nr_v132.align
+database tax                                      : /home/agave/lus_scratch/home/agave/lus_scratch/sparagon/job-4184856909679095315-242ac114-0001-007-cu22_mcr22_misc_july_2022_5ksubsample_08172022/databases/silva.full_v132.tax
+single end                                        : false
+min reads per sample                              : 50
+min read length                                   : 20
+read truncation                                   : 220,190
+max number of expected errors                     : 3
+quality truncation                                : 2
+keep phix genome                                  : false
+min overlap for merging                           : 20
+max mismatches for merging                        : 1
+Percentile for start/end contig filtering         : 95
+Minimum contig alignment length against db        : 50
+Filtered taxa                                     : unknown;-Bacteria;Proteobacteria;Alphaproteobacteria;Rickettsiales;Mitochondria;-Bacteria;Cyanobacteria;Oxyphotobacteria;Chloroplast;
+Skip subsampling                                  : false
+Subsampling                                       : 4999
+clustering similarity thresholds                  : 100,97
+Min OTU abundace filter                           : 2
+Lulu ratio type                                   : min
+Lulu parent/daughter min similarity               : 97
+Lulu parent/daughter min abundance ratio          : 1
+Lulu parent/daughter min co-occurrence            : 1

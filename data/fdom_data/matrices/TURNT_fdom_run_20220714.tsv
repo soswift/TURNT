@@ -1,0 +1,73 @@
+Loaded	UniqueID	trt	sample	notes
+1	BLANK1			
+2	Mo22_0349	R remin	1	
+1	Mo22_0338	B remin	2	
+2	Mo22_0348	r remin	3	
+1	Mo22_0341	c remin	4	
+2	Mo22_0343	c remin	5	
+1	Mo22_0346	n remin	6	
+2	Mo22_0358	n remin final	7	
+1	BLANK2			
+2	Mo22_0359		1	
+1	Mo22_0355	remin c final	2	
+2	Mo22_0352	remin B final	3	
+1	Mo22_0360	r remin f	4	
+2	Mo22_0353	c remin f	5	
+1	Mo22_0361	r remin f	6	
+2	Mo22_0354	c remin f	7	
+1	BLANK3			
+2	Mo22_0350	b remin f	1	
+1	Mo22_0357	n remin f	2	
+2	Mo22_0356	n remin f	3	
+1	Mo22_0345	n remin	4	
+2	Mo22_0351	b remin f	5	
+1	Mo22_0340	b remin	6	
+2	Mo22_0342	c remin	7	
+1	BLANK4			
+2	Mo22_0337	r ex2	1	
+1	Mo22_0334		2	
+2	Mo22_0319		3	
+1	Mo22_0336	r ex2	4	
+2	Mo22_0331	n ex2	5	
+1	Mo22_0333	r ex2	6	
+2	Mo22_0332	n ex2	7	
+1	BLANK5			
+2	Mo22_0330	n ex2	1	
+1	Mo22_0322	b ex2	2	
+2	Mo22_0335	r ex2	3	
+1	Mo22_0321	b ex2	4	
+2	Mo22_0325	c ex2	5	
+1	Mo22_0329	N ex2	6	
+2	Mo22_0324	c ex2	7	
+1	BLANK6			
+2	Mo22_0344	n remin	1	
+1	Mo22_0323	c ex2	2	
+2	Mo22_0339	b remin	3	
+1	Mo22_0320	b ex2	4	
+2	Mo22_0347	r remin	5	
+1	Mo22_0318	b ex2	6	
+2	Mo22_0301	bex1	7	
+1	BLANK7			
+2	Mo22_0327	c ex2	1	
+1	Mo22_0304	c ex1	2	
+2	Mo22_0326	c ex2	3	
+1	Mo22_0328	N ex2	4	
+2	Mo22_0314	r ex1	5	
+1	Mo22_0312	n5 ex1	6	
+2	Mo22_0306	c ex1	7	
+1	BLANK8			
+2	Mo22_0315	r ex1	1	tiny particles
+1	Mo22_0307	c ex1	2	
+2	Mo22_0316	r ex1	3	
+1	Mo22_0317	r ex1	4	
+2	Mo22_0305	c ex1	5	
+1	Mo22_0313	r ex1	6	
+2	Mo22_0310	n ex1	7	
+1	BLANK9			
+2	Mo22_0300	b ex1	1	
+1	Mo22_0303	c ex1	2	
+2	Mo22_0309	n ex1	3	
+1	Mo22_0302	b ex1	4	
+2	Mo22_0311	n ex1	5	
+1	Mo22_0308	n ex1	6	
+2	empty		7	

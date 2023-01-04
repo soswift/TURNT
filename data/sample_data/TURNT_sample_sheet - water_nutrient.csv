@@ -1,0 +1,13 @@
+nutrient_id,treatment,time_point_hr,ph,DO,notes
+C_24,control,24,NA,NA,
+N_24,nutrient,24,NA,NA,
+R_24,recharge,24,NA,NA,
+C_48,control,48,NA,NA,
+N_48,nutrient,48,NA,NA,
+R_48,recharge,48,NA,NA,
+C_72,control,72,NA,NA,
+N_72,nutrient,72,NA,NA,
+R_72,recharge,72,NA,NA,
+C_96,control,96,8.23,6.6,getting brown scuz on walls of the tank
+N_96,nutrient,96,8.23,6.75,getting some green algae on the walls of the tank
+R_96,recharge,96,8.23,6.82,getting brown scuz on walls of the tank

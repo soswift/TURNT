@@ -1,0 +1,8 @@
+Raw fdom data processed with R script
+
+Steps:
+	Raw data in folder raw_data
+	run process_fdom.R
+		identify run order key
+		matrices output to subdirectory of raw_data
+	proceed with analysis.

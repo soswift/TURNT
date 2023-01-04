@@ -1,0 +1,249 @@
+Reading data files in directory: matrices
+Reading in sample key
+Blanks detected in sample key = 10
+[1] "Aqualog Parameters"
+Slitwidth
+5
+ExStart
+240
+ExEnd
+500
+ExStep
+5
+EmStart
+248
+EmEnd
+824.6
+EmStep
+4.65
+ [1] "Reading data files in directory: matrices"                                     
+ [2] "Reading in sample key"                                                         
+ [3] "Blanks detected in sample key = 9"                                             
+ [4] "Total N samples = 63"                                                          
+ [5] "Total N groups = 9"                                                            
+ [6] "Total N blanks  = 9"                                                           
+ [7] "N samples in each group = 7"                                                   
+ [8] "N samples in last group = 7"                                                   
+ [9] "Absorbance files detected, including absorbance data and IFE correction"       
+[10] "writing out sample_sheet as: TURNT_sample_sheet.csv"                           
+[11] "extracting EEM data from files"                                                
+[12] "[1] \"Good. All SEM files exist.\""                                            
+[13] "Absorbance (ABS) files detected, reading absorbance data"                      
+[14] "calculating Raman Areas"                                                       
+[15] "performing Inner Filter Correction"                                            
+[16] "performing Raman scaling"                                                      
+[17] "performing Rayleigh scatter subtraction"                                       
+[18] "writing out cleaned EEM files to directory processed_data > processed_matrices"
+[19] "calculating indices"                                                           
+[20] "index calculated:  CobleA"                                                     
+[21] "index calculated:  CobleB"                                                     
+[22] "index calculated:  CobleC"                                                     
+[23] "index calculated:  CobleM"                                                     
+[24] "index calculated:  CobleT"                                                     
+[25] "index calculated:  Fpeak"                                                      
+[26] "index calculated:  Stedmon_D"                                                  
+[27] "index calculated:  Optical_Brighteners"                                        
+[28] "index calculated:  dieselBandII"                                               
+[29] "index calculated:  Petroleum"                                                  
+[30] "index calculated:  Lignin"                                                     
+[31] "index calculated:  BIX"                                                        
+[32] "index calculated:  HIX"                                                        
+[33] "index calculated:  FI"                                                         
+[34] "index calculated:  M_to_C"                                                     
+[35] "index calculated:  JP5_empirical"                                              
+[36] "index calculated:  JP5_normalized"                                             
+[37] "index calculated:  Diesel_Chen"                                                
+[38] "writing out indices to processed_data > fDOM_indices_out.csv"                  
+[39] "DONE: indices written out to TURNT_fDOM_indices_out.csv"                       
+[1] "Aqualog Parameters"
+Slitwidth
+5
+ExStart
+240
+ExEnd
+500
+ExStep
+5
+EmStart
+248
+EmEnd
+824.6
+EmStep
+4.65
+ [1] "Reading data files in directory: matrices"                                     
+ [2] "Reading in sample key"                                                         
+ [3] "Blanks detected in sample key = 9"                                             
+ [4] "Total N samples = 63"                                                          
+ [5] "Total N groups = 9"                                                            
+ [6] "Total N blanks  = 9"                                                           
+ [7] "N samples in each group = 7"                                                   
+ [8] "N samples in last group = 7"                                                   
+ [9] "Absorbance files detected, including absorbance data and IFE correction"       
+[10] "writing out sample_sheet as: TURNT_sample_sheet.csv"                           
+[11] "extracting EEM data from files"                                                
+[12] "[1] \"Good. All SEM files exist.\""                                            
+[13] "Absorbance (ABS) files detected, reading absorbance data"                      
+[14] "calculating Raman Areas"                                                       
+[15] "performing Inner Filter Correction"                                            
+[16] "performing Raman scaling"                                                      
+[17] "performing Rayleigh scatter subtraction"                                       
+[18] "writing out cleaned EEM files to directory processed_data > processed_matrices"
+[19] "calculating indices"                                                           
+[20] "index calculated:  CobleA"                                                     
+[21] "index calculated:  CobleB"                                                     
+[22] "index calculated:  CobleC"                                                     
+[23] "index calculated:  CobleM"                                                     
+[24] "index calculated:  CobleT"                                                     
+[25] "index calculated:  Fpeak"                                                      
+[26] "index calculated:  Stedmon_D"                                                  
+[27] "index calculated:  Optical_Brighteners"                                        
+[28] "index calculated:  dieselBandII"                                               
+[29] "index calculated:  Petroleum"                                                  
+[30] "index calculated:  Lignin"                                                     
+[31] "index calculated:  BIX"                                                        
+[32] "index calculated:  HIX"                                                        
+[33] "index calculated:  FI"                                                         
+[34] "index calculated:  M_to_C"                                                     
+[35] "index calculated:  JP5_empirical"                                              
+[36] "index calculated:  JP5_normalized"                                             
+[37] "index calculated:  Diesel_Chen"                                                
+[38] "writing out indices to processed_data > fDOM_indices_out.csv"                  
+[39] "DONE: indices written out to TURNT_fDOM_indices_out.csv"                       
+     UniqueID run_name run_order             sample    group                  SEM_file                    blank1                    blank2
+ 1: Mo22_0349    TURNT         1 Group001Sample0001 Group001 Group001Sample0001SEM.dat Group001Sample0001BEM.dat Group002Sample0001BEM.dat
+ 2: Mo22_0338    TURNT         2 Group001Sample0002 Group001 Group001Sample0002SEM.dat Group001Sample0001BEM.dat Group002Sample0001BEM.dat
+ 3: Mo22_0348    TURNT         3 Group001Sample0003 Group001 Group001Sample0003SEM.dat Group001Sample0001BEM.dat Group002Sample0001BEM.dat
+ 4: Mo22_0341    TURNT         4 Group001Sample0004 Group001 Group001Sample0004SEM.dat Group001Sample0001BEM.dat Group002Sample0001BEM.dat
+ 5: Mo22_0343    TURNT         5 Group001Sample0005 Group001 Group001Sample0005SEM.dat Group001Sample0001BEM.dat Group002Sample0001BEM.dat
+ 6: Mo22_0346    TURNT         6 Group001Sample0006 Group001 Group001Sample0006SEM.dat Group001Sample0001BEM.dat Group002Sample0001BEM.dat
+ 7: Mo22_0358    TURNT         7 Group001Sample0007 Group001 Group001Sample0007SEM.dat Group001Sample0001BEM.dat Group002Sample0001BEM.dat
+ 8: Mo22_0359    TURNT         8 Group002Sample0001 Group002 Group002Sample0001SEM.dat Group002Sample0001BEM.dat Group003Sample0001BEM.dat
+ 9: Mo22_0355    TURNT         9 Group002Sample0002 Group002 Group002Sample0002SEM.dat Group002Sample0001BEM.dat Group003Sample0001BEM.dat
+10: Mo22_0352    TURNT        10 Group002Sample0003 Group002 Group002Sample0003SEM.dat Group002Sample0001BEM.dat Group003Sample0001BEM.dat
+11: Mo22_0360    TURNT        11 Group002Sample0004 Group002 Group002Sample0004SEM.dat Group002Sample0001BEM.dat Group003Sample0001BEM.dat
+12: Mo22_0353    TURNT        12 Group002Sample0005 Group002 Group002Sample0005SEM.dat Group002Sample0001BEM.dat Group003Sample0001BEM.dat
+13: Mo22_0361    TURNT        13 Group002Sample0006 Group002 Group002Sample0006SEM.dat Group002Sample0001BEM.dat Group003Sample0001BEM.dat
+14: Mo22_0354    TURNT        14 Group002Sample0007 Group002 Group002Sample0007SEM.dat Group002Sample0001BEM.dat Group003Sample0001BEM.dat
+15: Mo22_0350    TURNT        15 Group003Sample0001 Group003 Group003Sample0001SEM.dat Group003Sample0001BEM.dat Group004Sample0001BEM.dat
+16: Mo22_0357    TURNT        16 Group003Sample0002 Group003 Group003Sample0002SEM.dat Group003Sample0001BEM.dat Group004Sample0001BEM.dat
+17: Mo22_0356    TURNT        17 Group003Sample0003 Group003 Group003Sample0003SEM.dat Group003Sample0001BEM.dat Group004Sample0001BEM.dat
+18: Mo22_0345    TURNT        18 Group003Sample0004 Group003 Group003Sample0004SEM.dat Group003Sample0001BEM.dat Group004Sample0001BEM.dat
+19: Mo22_0351    TURNT        19 Group003Sample0005 Group003 Group003Sample0005SEM.dat Group003Sample0001BEM.dat Group004Sample0001BEM.dat
+20: Mo22_0340    TURNT        20 Group003Sample0006 Group003 Group003Sample0006SEM.dat Group003Sample0001BEM.dat Group004Sample0001BEM.dat
+21: Mo22_0342    TURNT        21 Group003Sample0007 Group003 Group003Sample0007SEM.dat Group003Sample0001BEM.dat Group004Sample0001BEM.dat
+22: Mo22_0337    TURNT        22 Group004Sample0001 Group004 Group004Sample0001SEM.dat Group004Sample0001BEM.dat Group005Sample0001BEM.dat
+23: Mo22_0334    TURNT        23 Group004Sample0002 Group004 Group004Sample0002SEM.dat Group004Sample0001BEM.dat Group005Sample0001BEM.dat
+24: Mo22_0319    TURNT        24 Group004Sample0003 Group004 Group004Sample0003SEM.dat Group004Sample0001BEM.dat Group005Sample0001BEM.dat
+25: Mo22_0336    TURNT        25 Group004Sample0004 Group004 Group004Sample0004SEM.dat Group004Sample0001BEM.dat Group005Sample0001BEM.dat
+26: Mo22_0331    TURNT        26 Group004Sample0005 Group004 Group004Sample0005SEM.dat Group004Sample0001BEM.dat Group005Sample0001BEM.dat
+27: Mo22_0333    TURNT        27 Group004Sample0006 Group004 Group004Sample0006SEM.dat Group004Sample0001BEM.dat Group005Sample0001BEM.dat
+28: Mo22_0332    TURNT        28 Group004Sample0007 Group004 Group004Sample0007SEM.dat Group004Sample0001BEM.dat Group005Sample0001BEM.dat
+29: Mo22_0330    TURNT        29 Group005Sample0001 Group005 Group005Sample0001SEM.dat Group005Sample0001BEM.dat Group006Sample0001BEM.dat
+30: Mo22_0322    TURNT        30 Group005Sample0002 Group005 Group005Sample0002SEM.dat Group005Sample0001BEM.dat Group006Sample0001BEM.dat
+31: Mo22_0335    TURNT        31 Group005Sample0003 Group005 Group005Sample0003SEM.dat Group005Sample0001BEM.dat Group006Sample0001BEM.dat
+32: Mo22_0321    TURNT        32 Group005Sample0004 Group005 Group005Sample0004SEM.dat Group005Sample0001BEM.dat Group006Sample0001BEM.dat
+33: Mo22_0325    TURNT        33 Group005Sample0005 Group005 Group005Sample0005SEM.dat Group005Sample0001BEM.dat Group006Sample0001BEM.dat
+34: Mo22_0329    TURNT        34 Group005Sample0006 Group005 Group005Sample0006SEM.dat Group005Sample0001BEM.dat Group006Sample0001BEM.dat
+35: Mo22_0324    TURNT        35 Group005Sample0007 Group005 Group005Sample0007SEM.dat Group005Sample0001BEM.dat Group006Sample0001BEM.dat
+36: Mo22_0344    TURNT        36 Group006Sample0001 Group006 Group006Sample0001SEM.dat Group006Sample0001BEM.dat Group007Sample0001BEM.dat
+37: Mo22_0323    TURNT        37 Group006Sample0002 Group006 Group006Sample0002SEM.dat Group006Sample0001BEM.dat Group007Sample0001BEM.dat
+38: Mo22_0339    TURNT        38 Group006Sample0003 Group006 Group006Sample0003SEM.dat Group006Sample0001BEM.dat Group007Sample0001BEM.dat
+39: Mo22_0320    TURNT        39 Group006Sample0004 Group006 Group006Sample0004SEM.dat Group006Sample0001BEM.dat Group007Sample0001BEM.dat
+40: Mo22_0347    TURNT        40 Group006Sample0005 Group006 Group006Sample0005SEM.dat Group006Sample0001BEM.dat Group007Sample0001BEM.dat
+41: Mo22_0318    TURNT        41 Group006Sample0006 Group006 Group006Sample0006SEM.dat Group006Sample0001BEM.dat Group007Sample0001BEM.dat
+42: Mo22_0301    TURNT        42 Group006Sample0007 Group006 Group006Sample0007SEM.dat Group006Sample0001BEM.dat Group007Sample0001BEM.dat
+43: Mo22_0327    TURNT        43 Group007Sample0001 Group007 Group007Sample0001SEM.dat Group007Sample0001BEM.dat Group008Sample0001BEM.dat
+44: Mo22_0304    TURNT        44 Group007Sample0002 Group007 Group007Sample0002SEM.dat Group007Sample0001BEM.dat Group008Sample0001BEM.dat
+45: Mo22_0326    TURNT        45 Group007Sample0003 Group007 Group007Sample0003SEM.dat Group007Sample0001BEM.dat Group008Sample0001BEM.dat
+46: Mo22_0328    TURNT        46 Group007Sample0004 Group007 Group007Sample0004SEM.dat Group007Sample0001BEM.dat Group008Sample0001BEM.dat
+47: Mo22_0314    TURNT        47 Group007Sample0005 Group007 Group007Sample0005SEM.dat Group007Sample0001BEM.dat Group008Sample0001BEM.dat
+48: Mo22_0312    TURNT        48 Group007Sample0006 Group007 Group007Sample0006SEM.dat Group007Sample0001BEM.dat Group008Sample0001BEM.dat
+49: Mo22_0306    TURNT        49 Group007Sample0007 Group007 Group007Sample0007SEM.dat Group007Sample0001BEM.dat Group008Sample0001BEM.dat
+50: Mo22_0315    TURNT        50 Group008Sample0001 Group008 Group008Sample0001SEM.dat Group008Sample0001BEM.dat Group009Sample0001BEM.dat
+51: Mo22_0307    TURNT        51 Group008Sample0002 Group008 Group008Sample0002SEM.dat Group008Sample0001BEM.dat Group009Sample0001BEM.dat
+52: Mo22_0316    TURNT        52 Group008Sample0003 Group008 Group008Sample0003SEM.dat Group008Sample0001BEM.dat Group009Sample0001BEM.dat
+53: Mo22_0317    TURNT        53 Group008Sample0004 Group008 Group008Sample0004SEM.dat Group008Sample0001BEM.dat Group009Sample0001BEM.dat
+54: Mo22_0305    TURNT        54 Group008Sample0005 Group008 Group008Sample0005SEM.dat Group008Sample0001BEM.dat Group009Sample0001BEM.dat
+55: Mo22_0313    TURNT        55 Group008Sample0006 Group008 Group008Sample0006SEM.dat Group008Sample0001BEM.dat Group009Sample0001BEM.dat
+56: Mo22_0310    TURNT        56 Group008Sample0007 Group008 Group008Sample0007SEM.dat Group008Sample0001BEM.dat Group009Sample0001BEM.dat
+57: Mo22_0300    TURNT        57 Group009Sample0001 Group009 Group009Sample0001SEM.dat Group009Sample0001BEM.dat Group001Sample0001BEM.dat
+58: Mo22_0303    TURNT        58 Group009Sample0002 Group009 Group009Sample0002SEM.dat Group009Sample0001BEM.dat Group001Sample0001BEM.dat
+59: Mo22_0309    TURNT        59 Group009Sample0003 Group009 Group009Sample0003SEM.dat Group009Sample0001BEM.dat Group001Sample0001BEM.dat
+60: Mo22_0302    TURNT        60 Group009Sample0004 Group009 Group009Sample0004SEM.dat Group009Sample0001BEM.dat Group001Sample0001BEM.dat
+61: Mo22_0311    TURNT        61 Group009Sample0005 Group009 Group009Sample0005SEM.dat Group009Sample0001BEM.dat Group001Sample0001BEM.dat
+62: Mo22_0308    TURNT        62 Group009Sample0006 Group009 Group009Sample0006SEM.dat Group009Sample0001BEM.dat Group001Sample0001BEM.dat
+63:     empty    TURNT        63 Group009Sample0007 Group009 Group009Sample0007SEM.dat Group009Sample0001BEM.dat Group001Sample0001BEM.dat
+     UniqueID run_name run_order             sample    group                  SEM_file                    blank1                    blank2
+                     ABS_file
+ 1: Group001Sample0001ABS.dat
+ 2: Group001Sample0002ABS.dat
+ 3: Group001Sample0003ABS.dat
+ 4: Group001Sample0004ABS.dat
+ 5: Group001Sample0005ABS.dat
+ 6: Group001Sample0006ABS.dat
+ 7: Group001Sample0007ABS.dat
+ 8: Group002Sample0001ABS.dat
+ 9: Group002Sample0002ABS.dat
+10: Group002Sample0003ABS.dat
+11: Group002Sample0004ABS.dat
+12: Group002Sample0005ABS.dat
+13: Group002Sample0006ABS.dat
+14: Group002Sample0007ABS.dat
+15: Group003Sample0001ABS.dat
+16: Group003Sample0002ABS.dat
+17: Group003Sample0003ABS.dat
+18: Group003Sample0004ABS.dat
+19: Group003Sample0005ABS.dat
+20: Group003Sample0006ABS.dat
+21: Group003Sample0007ABS.dat
+22: Group004Sample0001ABS.dat
+23: Group004Sample0002ABS.dat
+24: Group004Sample0003ABS.dat
+25: Group004Sample0004ABS.dat
+26: Group004Sample0005ABS.dat
+27: Group004Sample0006ABS.dat
+28: Group004Sample0007ABS.dat
+29: Group005Sample0001ABS.dat
+30: Group005Sample0002ABS.dat
+31: Group005Sample0003ABS.dat
+32: Group005Sample0004ABS.dat
+33: Group005Sample0005ABS.dat
+34: Group005Sample0006ABS.dat
+35: Group005Sample0007ABS.dat
+36: Group006Sample0001ABS.dat
+37: Group006Sample0002ABS.dat
+38: Group006Sample0003ABS.dat
+39: Group006Sample0004ABS.dat
+40: Group006Sample0005ABS.dat
+41: Group006Sample0006ABS.dat
+42: Group006Sample0007ABS.dat
+43: Group007Sample0001ABS.dat
+44: Group007Sample0002ABS.dat
+45: Group007Sample0003ABS.dat
+46: Group007Sample0004ABS.dat
+47: Group007Sample0005ABS.dat
+48: Group007Sample0006ABS.dat
+49: Group007Sample0007ABS.dat
+50: Group008Sample0001ABS.dat
+51: Group008Sample0002ABS.dat
+52: Group008Sample0003ABS.dat
+53: Group008Sample0004ABS.dat
+54: Group008Sample0005ABS.dat
+55: Group008Sample0006ABS.dat
+56: Group008Sample0007ABS.dat
+57: Group009Sample0001ABS.dat
+58: Group009Sample0002ABS.dat
+59: Group009Sample0003ABS.dat
+60: Group009Sample0004ABS.dat
+61: Group009Sample0005ABS.dat
+62: Group009Sample0006ABS.dat
+63: Group009Sample0007ABS.dat
+                     ABS_file
+ [1] "MooreaCode"          "CobleA"              "CobleB"              "CobleC"              "CobleM"              "CobleT"              "Fpeak"               "Stedmon_D"           "Optical_Brighteners"
+[10] "dieselBandII"        "Petroleum"           "Lignin"              "BIX"                 "HIX"                 "FI"                  "M_to_C"              "JP5_empirical"       "JP5_normalized"     
+[19] "Diesel_Chen"         "sample"              "run_name"            "sampleID"            "rep"                 "treatment"           "stage"               "Individual"          "DO_T1"              
+[28] "DO_T2"               "sample_types"        "notes"              
+ [1] "MooreaCode"          "CobleA"              "CobleB"              "CobleC"              "CobleM"              "CobleT"              "Fpeak"               "Stedmon_D"           "Optical_Brighteners"
+[10] "dieselBandII"        "Petroleum"           "Lignin"              "BIX"                 "HIX"                 "FI"                  "M_to_C"              "JP5_empirical"       "JP5_normalized"     
+[19] "Diesel_Chen"         "sample"              "run_name"            "sampleID"            "rep"                 "treatment"           "stage"               "Individual"          "DO_T1"              
+[28] "DO_T2"               "sample_types"        "notes"              

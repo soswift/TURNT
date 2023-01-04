@@ -1,0 +1,212 @@
+---
+title: "TURNT - FCM exploration"
+output: 
+  html_document:
+    toc: true
+    toc_depth: 3
+    toc_float: true
+    smooth_scroll: true 
+    fig_width: 10
+    code_folding: hide  
+date: '2022-06-22'
+---
+# Overview
+This rmarkdown explores the flow cytometry data associated with the Mo'orea 2021 Turbinaria nutrient addition (and remineralization) experiment: *TURNT*.
+
+There were three treatments:
+
+ C = control, collected at 'normal' reef site, no nutrient addition
+ 
+ N = nutrient, collected at 'normal' reef site site, osmocote added during experiment 
+ 
+ R = recharge, collected at long-term osmocote addition site, osmocote added during experiment 
+
+Purpose of this document:
+
+  1) Organize the FCM and sample data
+
+  2) plot bacterial counts over time for the remineralization experiment
+
+  3) plot bacterial counts categorically for initial and final exudations
+
+
+```{r ReadIn}
+library(data.table)
+library(ggplot2)
+
+# sample key
+metadata_file = "../data/fcm_data/TURNT_sample_sheet - samples.csv"
+fcm_meta_file = "../data/sample_data/TURNT_sample_sheet - remin_flow_cyto.csv"
+
+# sample plate locations
+plate_map_file = "../data/fcm_data/TURNT_sample_sheet - flow_cyto_plates.csv"
+
+# fcm plate data, no-stain blanks for plate 1 were run on a separate plate ("Blanks")
+plate_1_file = "../data/fcm_data/TURNT_statistics_Plate1_6_17_22.csv"
+plate_2_file = "../data/fcm_data/TURNT_statistics_Plate2_6_17_22.csv"
+plate_1_extra_blanks_file = "../data/fcm_data/TURNT_statistics_Blanks_6_17_22.csv"
+
+
+# read in
+meta = fread(metadata_file)
+pmap = fread(plate_map_file)
+fcm_meta = fread(fcm_meta_file)
+
+
+p1_raw = fread(plate_1_file, check.names = T)
+p2_raw = fread(plate_2_file, check.names = T)
+p1b_raw = fread(plate_1_extra_blanks_file, check.names = T)
+
+p_list = list(p1 = p1_raw,
+              p2 = p2_raw,
+              p1b = p1b_raw)
+
+turnt_clrs = c(
+  control = "#73d9f0",
+  nutrient = "#f7b301",
+  recharge = "#eb773e",
+  blank = "gray"
+  )
+
+```
+
+
+
+
+```{r Organize, results = 'hide'}
+
+# organize metadata
+meta = meta[grepl("flow_cytometry", sample_types)]
+
+# add time point info
+meta_time = merge(meta, fcm_meta, all.x = T)
+meta_time[ , full_time := as.POSIXct( paste(date, time_taken),
+                                      format = "%Y-%m-%d %H:%M")]
+pkey = merge(pmap, meta_time, by = c("stage","rep"), all.x = T, all.y = F)
+
+missing_samples = meta[!(sampleID %in% pkey$sampleID)]
+
+
+
+
+# clean raw fcm data
+lapply(names(p_list), function(x){
+  p_list[[x]][ , well := gsub(".+Well-","", Tube.Name.)]
+  p_list[[x]][ , plate := x]
+}
+)
+
+p_dt = rbindlist(p_list)
+
+# all data cleaned and merged
+fcm = merge(p_dt, pkey, by = c("well","plate"), all.x = T)
+
+```
+
+
+```{r Separate}
+# exudation time points (initial and final)
+exu = fcm[grepl("exudation", stage)]
+
+# remineralization time points (time series)
+rem = fcm[grepl("remin", stage)]
+
+# fcm controls
+ctl = fcm[grepl("ctl",stage)]
+```
+
+# Remineralization Time Series
+
+FCM samples were taken at regular (ish) intervals over the course of the remineralization portion of the experiment.
+
+Experimental set up:
+* DOM harvested from the three treatments (control, nutrient, recharge) and filtered to remove microbes. 
+* This filtered chemical substrate was mixed with 'inoculum' in the form of freshly harvested backreef water, which contained live microbes. 
+* Presumably, the microbes would grow differently in response to differences in the chemical composition of DOM.
+
+
+What we expect to see:
+
+* Nice growth curves over the course of the time series
+* Differences in growth curve profiles between experimental treatments
+
+What we actually see:
+
+* Nutrient treatment has highest overall bacterial counts
+* After peaking, Nutrient treatment counts decrease at a slower rate than the other treatments
+* Control treatment takes an early lead (tasty sugars?) but peaks lower than the Nutrient treatment 
+* Recharge treatment lags behind the other two treatments
+* Recharge treatment has lowest overall counts (???)
+
+```{r Remin}
+# order time points
+rem[ , stage := sub("remin_T","", stage)]
+rem[ , stage := factor(stage, levels = 0:10)]
+
+# mean and se
+se <- function(x) sqrt(var(x) / length(x))
+
+rem_mean = rem[ , .(count_mean = mean(HBacteria.Events),
+                    se = se(HBacteria.Events)),
+                  by = c("full_time","treatment")]
+
+
+
+# plot bacterial counts
+hbac = ggplot(rem_mean, aes(x = full_time,
+                     y = count_mean,
+                     color = treatment,
+                     group = treatment))+
+  geom_point(size =1, pch = 19)+
+  geom_point(data = rem,
+             aes(x = full_time,
+                 y = HBacteria.Events,
+                 color = treatment),
+             alpha = 0.7,
+             pch = 21)+
+  geom_line()+
+  geom_errorbar(aes(ymin = count_mean - se, ymax = count_mean + se, width = 0.1))+
+  scale_color_manual(values = turnt_clrs) +
+  labs(y = "Heterotrophic Bacteria",
+       x = "Time Point")
+
+ggsave(plot = hbac,
+       file = "plots/fcm/hbacteria_remin.pdf",
+       height = 7,
+       width = 12,
+       scale = 0.5)
+
+ggsave(plot = hbac,
+       file = "plots/fcm/hbacteria_remin.png",
+       height = 7,
+       width = 12,
+       scale = 0.5)
+
+hbac
+
+```
+
+
+# Exudations
+
+Quickly check bacterial counts following the initial and final exudations.
+These were done with filtered sea water, so counts should be pretty low.
+
+Notes: 
+
+* Exudation 1 counts look a bit variable :/ 
+
+* Exudation 2 counts were more stable and even across the treatments. It's good that exudation 2 isn't super variable, because we used those exudates as substrate for the remin.
+
+```{r}
+ggplot(exu, aes(x = stage,
+                y = HBacteria.Events,
+                color = treatment))+
+  geom_boxplot()+
+  scale_color_manual(values = turnt_clrs)
+
+```
+
+
+
+

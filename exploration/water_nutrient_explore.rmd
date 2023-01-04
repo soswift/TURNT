@@ -1,0 +1,152 @@
+---
+title: "TURNT - Water Nutrients exploration"
+output: 
+  html_document:
+    toc: true
+    toc_depth: 3
+    toc_float: true
+    smooth_scroll: true 
+    fig_width: 10
+    code_folding: hide  
+date: '2022-12-05'
+---
+# Overview
+This rmarkdown explores the water nutrient data associated with the Mo'orea 2021 Turbinaria nutrient addition (and remineralization) experiment: *TURNT*.
+
+There were three treatments:
+
+ C = control, collected at 'normal' reef site, no nutrient addition
+ 
+ N = nutrient, collected at 'normal' reef site site, osmocote added during experiment 
+ 
+ R = recharge, collected at long-term osmocote addition site, osmocote added during experiment 
+
+
+
+Purpose of this document:
+
+  1) Organize water nutrient data 
+  
+  2) Compare nutrient values and ratios between treatments
+
+  3) compare nutrient values and ratios to natural habitat
+  
+  
+  
+```{r}
+library(ggplot2)
+library(data.table)
+theme_set(theme_minimal())
+
+turnt_clrs = c(
+  control = "#73d9f0",
+  nutrient = "#f7b301",
+  recharge = "#eb773e",
+  blank = "gray"
+  )
+```
+
+
+```{r}
+# read in
+nut_file = "../data/nutrient_data/water/clean_nutrients.csv"
+meta_file = "../data/sample_data/TURNT_sample_sheet - samples.csv"
+
+alt_met_file = "../data/sample_data/TURNT_sample_sheet - water_nutrient.csv"
+
+
+
+nut = fread(nut_file)
+
+meta = fread(meta_file)
+setnames(meta, "MooreaCode", "Sample")
+meta = meta[!is.na(Sample)]
+
+# time point comparisons during exudation
+alt_meta = fread(alt_met_file)
+setnames(alt_meta, "nutrient_id", "Sample")
+
+
+# nutrient variables
+nut_list = list("N",
+            "P",
+            "Phosphate",
+            "Ammonia",
+            "Silicate",
+            "N+N"
+            )
+
+
+```
+
+Check the exudation time point nutrients. Did fertilizing with osmocote produce the desired effect?
+
+
+```{r}
+trt_nut = merge(alt_meta, nut, all.x = T, all.y =F)
+trt_nut = trt_nut[!is.na(P),]
+
+
+trt_plot = function(y_var, dat = trt_nut) {
+  
+  ggplot(dat, aes_string(x = "time_point_hr",
+                  y = y_var,
+                  color = "treatment",
+                  group = "treatment"))+
+  geom_point(size = 3, pch = 21)+
+  geom_line(alpha = 0.7, size = 2)+
+  scale_color_manual(values = turnt_clrs)
+
+}
+
+# Nutrients
+
+lapply(nut_list, trt_plot)
+
+
+```
+
+
+Check exudation data 
+
+```{r}
+exp_nut = merge(meta, nut, all.x =F, all.y = F)
+
+
+exp_nut_plot = function(y_var, dat = exp_nut){
+ 
+  
+  means = tapply(dat[[y_var]],
+                 dat$treatment,
+                 mean)
+  
+  dat$mean_val = means[dat$treatment]
+  
+  ggplot(dat, aes_string(x = "treatment",
+                         y = y_var,
+                         color = "treatment",
+                         group = "treatment"))+
+    geom_jitter(size = 3, pch = 21)+
+    stat_summary(fun = "mean", geom = "point", pch = 19, size = 3)+
+    scale_color_manual(values = turnt_clrs)+
+    labs(title = unique(dat$stage))
+   
+}
+
+# exudation1
+lapply(nut_list, exp_nut_plot, dat = exp_nut[stage == "exudation_1",])
+
+# exudation 2
+lapply(nut_list, exp_nut_plot,  dat = exp_nut[stage == "exudation_2",])
+
+# remin T0
+lapply(nut_list, exp_nut_plot,  dat = exp_nut[stage == "remin_T0",])
+
+# remin TF
+lapply(nut_list, exp_nut_plot,  dat = exp_nut[stage == "remin_TF",])
+
+
+```
+
+
+

@@ -1,0 +1,166 @@
+date,time_point,pam_id,curve_number,Note,rep,individual,quality
+2022-04-02,24hr,p0001,1,turb test,NA,NA,check
+2022-04-02,24hr,p0002,2,leaf test,NA,NA,check
+2022-04-02,24hr,p0003,3,leaf test int = 3,NA,NA,check
+2022-04-02,24hr,p0004,4,leaf test int = 3,NA,NA,check
+2022-04-02,24hr,p0005,5,leaf test int = 5,NA,NA,check
+2022-04-02,24hr,p0006,6,"turb test, skewed",NA,NA,check
+2022-04-02,24hr,p0007,7,"turb test, tube clamp suction cup",NA,NA,check
+2022-04-02,24hr,p0008,8,"""",NA,NA,check
+2022-04-02,24hr,p0009,9,"""",NA,NA,check
+2022-04-02,24hr,p0010,10,"turb test, moved to shade",NA,NA,check
+2022-04-02,24hr,p0011,11,int 3,NA,NA,check
+2022-04-02,24hr,p0012,12,int 4,NA,NA,check
+2022-04-02,24hr,p0013,13,"int3, restrained, new individual fore reef",NA,NA,check
+2022-04-02,24hr,p0014,14,"int 4, """,NA,NA,check
+2022-04-02,24hr,p0015,15,"int5, """,NA,NA,check
+2022-04-02,24hr,p0016,16,"int3, new location on same individual, autozero",NA,NA,check
+2022-04-02,24hr,p0017,17,"int5, "", crazy high estimate, jacks at end",NA,NA,check
+2022-04-02,24hr,p0018,18,"int1 "", nice curve, no saturation, reasonable numbers",NA,NA,check
+2022-04-02,24hr,p0019,19,"int 2, "", crazy high estimate, jacks at end",NA,NA,check
+2022-04-02,24hr,p0020,20,"int3, "", ",NA,NA,check
+2022-04-02,24hr,p0021,21,"int1 new location same individual, pretty nice but no saturation",NA,NA,check
+2022-04-02,24hr,p0022,22,"int2, """,NA,NA,check
+2022-04-02,24hr,p0023,23,"int3, "", too soon after previous, no response for first 3 points",NA,NA,check
+2022-04-02,24hr,p0024,24,"int3, "", longer wait time , no dice",NA,NA,check
+2022-04-02,24hr,p0025,23,"int2, """,NA,NA,check
+2022-04-02,24hr,p0026,24,"int2, new location, ",NA,NA,check
+2022-04-02,24hr,p0027,25,"int2, new individual big guy,top turban, shitty ",NA,NA,check
+2022-04-02,24hr,p0028,26,"int4, long cool off, fiber touching, fail",NA,NA,check
+2022-04-02,24hr,p0029,27,"""",NA,NA,check
+2022-04-03,48hr,p0030,1,leaf,NA,NA,check
+2022-04-03,48hr,p0031,2,leaf2,NA,NA,check
+2022-04-03,48hr,p0032,3,turb harbor,NA,NA,check
+2022-04-03,48hr,p0033,4,turb blue tub,NA,NA,check
+2022-04-03,48hr,p0034,5,amansia,NA,NA,check
+2022-04-03,48hr,p0035,6,"""",NA,NA,check
+2022-04-03,48hr,p0036,7,"""",NA,NA,check
+2022-04-03,48hr,p0037,8,tub turb,NA,NA,check
+2022-04-03,48hr,p0038,9,amansia,NA,NA,check
+2022-04-03,48hr,p0039,10,tub turb dried out 10 mins,NA,NA,check
+2022-04-03,48hr,p0040,11,"""",NA,NA,check
+2022-04-03,48hr,p0041,12,turb no more zeroing,NA,NA,check
+2022-04-03,48hr,p0042,1,na,NA,NA,check
+2022-04-03,48hr,p0043,2,test turb,NA,NA,check
+2022-04-03,48hr,p0044,22,"c1-1, int 5",C1,C1-1,check
+2022-04-03,48hr,p0045,31,"c1-1, int 3",C1,C1-1,good
+2022-04-03,48hr,p0046,40,c1-2,C1,C1-2,good
+2022-04-03,48hr,p0047,49,c2-1,C2,C2-1,good
+2022-04-03,48hr,p0048,58,c2-2,C2,C2-2,good
+2022-04-03,48hr,p0049,67,c2-2 rerun gut check,C2,C2-2,check
+2022-04-03,48hr,p0050,76,c3-1 big',C3,C3-1,good
+2022-04-03,48hr,p0051,85,c3-2,C3,C3-2,good
+2022-04-03,48hr,p0052,94,c4-1 big,C4,C4-1,good
+2022-04-03,48hr,p0053,103,c4-2,C4,C4-2,good
+2022-04-03,48hr,p0054,112,c5-1,C5,C5-1,good
+2022-04-03,48hr,p0055,121,c5-2,C5,C5-2,bad
+2022-04-03,48hr,p0056,130,c5-2 rerun gut check,C5,C5-2,good
+2022-04-03,48hr,p0057,139,r1-1,R1,R1-1,good
+2022-04-03,48hr,p0058,148,r1-2,R1,R1-2,good
+2022-04-03,48hr,p0059,157,r1-2 rerun gut check,R1,R1-2,check
+2022-04-03,48hr,p0060,166,r2-1,R2,R2-1,good
+2022-04-03,48hr,p0061,175,r2-2,R2,R2-2,good
+2022-04-03,48hr,p0062,184,r3-1,R3,R3-1,good
+2022-04-03,48hr,p0063,193,r3-2,R3,R3-2,good
+2022-04-03,48hr,p0064,202,r3-2 rerun gut check,R3,R3-2,check
+2022-04-03,48hr,p0065,211,r4-1,R4,R4-1,good
+2022-04-03,48hr,p0066,219,r4-2,R4,R4-2,bad
+2022-04-03,48hr,p0067,230,r4-2 rerun,R4,R4-2,good
+2022-04-03,48hr,p0068,239,r5-1,R5,R5-1,good
+2022-04-03,48hr,p0069,248,r5-2,R5,R5-2,good
+2022-04-03,48hr,p0070,257,n2-1,N2,N2-1,good
+2022-04-03,48hr,p0071,266,n2-2,N2,N2-2,good
+2022-04-03,48hr,p0072,275,n1-2,N1,N1-2,good
+2022-04-03,48hr,p0073,284,n1-1,N1,N1-1,bad
+2022-04-03,48hr,p0074,293,n1-1 rerun,N1,N1-1,good
+2022-04-03,48hr,p0075,302,n3-1,N3,N3-1,good
+2022-04-03,48hr,p0076,311,n3-2,N3,N3-2,good
+2022-04-03,48hr,p0077,320,n4-1 big spikes not touching fiber,N4,N4-1,bad
+2022-04-03,48hr,p0078,329,n4-1 rerun,N4,N4-1,good
+2022-04-03,48hr,p0079,338,n4-2,N4,N4-2,good
+2022-04-03,48hr,p0080,347,n5-1,N5,N5-1,good
+2022-04-03,48hr,p0081,356,n5-1 rerun  mess up dont use,N5,N5-1,bad
+2022-04-03,48hr,p0082,357,n5-2 interrupted,N5,N5-2,bad
+2022-04-03,48hr,p0083,374,junk,NA,NA,bad
+2022-04-03,48hr,p0084,379,n5-2 real,N5,N5-2,good
+2022-04-03,48hr,p0085,388,c3-1 check for time effect,C3,C3-1,check
+2022-04-04,72hr,p0086,1,"turb test, int 2",NA,NA,NA
+2022-04-04,72hr,p0087,10,c1-1,C1,C1-1,good
+2022-04-04,72hr,p0088,19,c1-2,C1,C1-2,good
+2022-04-04,72hr,p0089,28,r1-1,R1,R1-1,good
+2022-04-04,72hr,p0090,37,r1-2,R1,R1-2,good
+2022-04-04,72hr,p0091,46,n1-1,N1,N1-1,good
+2022-04-04,72hr,p0092,55,n1-2,N1,N1-2,good
+2022-04-04,72hr,p0093,64,c2-1,C2,C2-1,good
+2022-04-04,72hr,p0094,73,c2-2 no sat,C2,C2-2,bad
+2022-04-04,72hr,p0095,82,c2-2 rerun,C2,C2-2,good
+2022-04-04,72hr,p0096,91,"r2-1 similar size, longer one",R2,R2-1,good
+2022-04-04,72hr,p0097,100,r2-2,R2,R2-2,good
+2022-04-04,72hr,p0098,109,n2-1,N2,N2-1,bad
+2022-04-04,72hr,p0099,118,n2-2,N2,N2-2,good
+2022-04-04,72hr,p0100,127,n2-1 rerun,N2,N2-1,good
+2022-04-04,72hr,p0101,136,c3-1,C3,C3-1,good
+2022-04-04,72hr,p0102,145,c3-2,C3,C3-2,good
+2022-04-04,72hr,p0103,154,r3-1,R3,R3-1,good
+2022-04-04,72hr,p0104,163,r3-2,R3,R3-2,good
+2022-04-04,72hr,p0105,172,n3-1,N3,N3-1,good
+2022-04-04,72hr,p0106,161,n3-2,N3,N3-2,good
+2022-04-04,72hr,p0107,170,c4-1 slipped mess up,C4,C4-1,bad
+2022-04-04,72hr,p0108,194,c4-1 rerun,C4,C4-1,good
+2022-04-04,72hr,p0109,203,c4-1 big turban check ,C4,C4-1,check
+2022-04-04,72hr,p0110,212,c4-2,C4,C4-2,good
+2022-04-04,72hr,p0111,221,r4-1,R4,R4-1,good
+2022-04-04,72hr,p0112,236,r4-2,R4,R4-2,good
+2022-04-04,72hr,p0113,244,n4-1,N4,N4-1,good
+2022-04-04,72hr,p0114,245,n4-2 no sat,N4,N4-2,bad
+2022-04-04,72hr,p0115,261,n4-2 rerun,N4,N4-2,good
+2022-04-04,72hr,p0116,270,c5-1,C5,C5-1,good
+2022-04-04,72hr,p0117,279,c5-1 rerun for fun ,C5,C5-1,check
+2022-04-04,72hr,p0118,288,c5-1 opposite side,C5,C5-1,check
+2022-04-04,72hr,p0119,297,c5-2,C5,C5-2,good
+2022-04-04,72hr,p0120,306,r5-1,R5,R5-1,good
+2022-04-04,72hr,p0121,315,r5-2,R5,R5-2,good
+2022-04-04,72hr,p0122,324,n5-1,N5,N5-1,good
+2022-04-04,72hr,p0123,333,mess up,NA,NA,bad
+2022-04-04,72hr,p0124,339,n5-2 super high,N5,N5-2,bad
+2022-04-04,72hr,p0125,348,n5-2 rerun,N5,N5-2,good
+2022-04-04,72hr,p0126,357,c1-1 consistency check,C1,C1-1,check
+2022-04-04,72hr,p0127,366,c1-2 consistency check,C1,C1-2,check
+2022-04-05,96 hr,p0128,1,turb test 1,NA,NA,check
+2022-04-05,96 hr,p0129,10,turb test 2,NA,NA,check
+2022-04-05,96 hr,p0130,19,c1-1,C1,C1-1,good
+2022-04-05,96 hr,p0131,28,c1-2,C1,C1-2,good
+2022-04-05,96 hr,p0132,37,r1-1,R1,R1-1,good
+2022-04-05,96 hr,p0133,46,r1-2,R1,R1-2,good
+2022-04-05,96 hr,p0134,55,r1-2 check,R1,R1-2,check
+2022-04-05,96 hr,p0135,64,n1-1,N1,N1-1,good
+2022-04-05,96 hr,p0136,73,n1-2,N1,N1-2,good
+2022-04-05,96 hr,p0137,82,"c2-1, heavy epiphytes",C2,C2-1,good
+2022-04-05,96 hr,p0138,91,c2-2,C2,C2-2,good
+2022-04-05,96 hr,p0139,100,r2-1,R2,R2-1,good
+2022-04-05,96 hr,p0140,109,r2-2,R2,R2-2,good
+2022-04-05,96 hr,p0141,118,n2-1,N2,N2-1,good
+2022-04-05,96 hr,p0142,127,n2-2,N2,N2-2,good
+2022-04-05,96 hr,p0143,136,c3-1,C3,C3-1,good
+2022-04-05,96 hr,p0144,145,c3-2,C3,C3-2,good
+2022-04-05,96 hr,p0145,154,r3-1,R3,R3-1,good
+2022-04-05,96 hr,p0146,163,"r3-2, super high",R3,R3-2,good
+2022-04-05,96 hr,p0147,172,r3-2 check,R3,R3-2,check
+2022-04-05,96 hr,p0148,181,n3-1,N3,N3-1,good
+2022-04-05,96 hr,p0149,190,n3-2 mess up,N3,N3-2,bad
+2022-04-05,96 hr,p0150,195,n3-2 rerun,N3,N3-2,good
+2022-04-05,96 hr,p0151,204,c4-1,C4,C4-1,good
+2022-04-05,96 hr,p0152,213,c4-2,C4,C4-2,good
+2022-04-05,96 hr,p0153,222,r4-1,R4,R4-1,good
+2022-04-05,96 hr,p0154,231,r4-2 super high,R4,R4-2,bad
+2022-04-05,96 hr,p0155,240,r4-2 rerun,R4,R4-2,good
+2022-04-05,96 hr,p0156,249,c5-1 small guy,C5,C5-1,good
+2022-04-05,96 hr,p0157,259,c5-2 mess up,C5,C5-2,bad
+2022-04-05,96 hr,p0158,262,c5-2 rerun super high,C5,C5-2,bad
+2022-04-05,96 hr,p0159,271,c5-2 check mess up,C5,C5-2,bad
+2022-04-05,96 hr,p0160,280,c5-2 rerun ,C5,C5-2,good
+2022-04-05,96 hr,p0161,289,r5-1,R5,R5-1,good
+2022-04-05,96 hr,p0162,298,r5-2 mess up,R5,R5-2,good
+2022-04-05,96 hr,p0163,303,r5-2 rerun,R5,R5-2,bad
+2022-04-05,96 hr,p0164,312,n5-1,N5,N5-1,good
+2022-04-05,96 hr,p0165,321,n5-2,N5,N5-2,good

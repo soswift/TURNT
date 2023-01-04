@@ -1,0 +1,567 @@
+---
+title: "TURNT - FCM exploration"
+output: 
+  html_document:
+    toc: true
+    toc_depth: 3
+    toc_float: true
+    smooth_scroll: true 
+    fig_width: 10
+    code_folding: hide  
+date: '2022-06-22'
+---
+# Overview
+This rmarkdown explores the fDOM data associated with the Mo'orea 2021 Turbinaria nutrient addition (and remineralization) experiment: **TURNT**.
+
+Pairs of Turbinaria individuals were placed in clear aquaria on a water table.
+
+
+
+       
+
+
+
+There were three treatments:
+
+ C = **control**, collected at 'normal' reef site, no nutrient addition
+ 
+ N = **nutrient**, collected at 'normal' reef site site, osmocote added during experiment 
+ 
+ R = **recharge**, collected at long-term osmocote addition site, osmocote added during experiment 
+ 
+ B = **blank**, emtpy aquaria containing filtered seawater water that were left out on water table during treatment
+ 
+ 
+There were four data points collected:
+
+ **exudation_1** = initial exudation after bringing Turbinaria in from the collection site (post 24hr acclimation period)
+ 
+ **exudation_2** = exudation after 4 days of treatment
+ 
+ **remin_T0** =  exudation 2 products pooled by treatment, mixed with reef water, and subsampled.
+ 
+ **remin_TF** = remaining compounds after 24hr remineralization by microbes
+ 
+ 
+Timeline: 
+  Collection ->
+  
+    Acclimation (24hr) ->
+    
+      Exudation 1 (~10 hr) ->
+      
+       Treatment (4 days) ->
+       
+        Exudation 2 (~10 hr) ->
+        
+          Pool exudates by treatment ->
+          
+            T0 remin sampling ->
+            
+             Remineralization (24 hr) ->
+             
+              TF remin sampling
+   
+
+Purpose of this document:
+
+  1) Organize the fDOM and sample data
+
+  2) ordinate samples based on fDOM indices
+
+  3) compare fDOM index values across treatments for each index
+
+
+```{r ReadIn}
+library(data.table)
+library(ggplot2)
+library(vegan)
+library(cowplot)
+library(GGally)
+
+
+theme_set(theme_minimal())
+
+# sample key
+metadata_file = "../data/sample_data/TURNT_sample_sheet - samples.csv"
+
+# sample plate locations (not required for code, just for reference)
+run_map_file = "../data/fdom_data/matrices/processed_data/TURNT_sample_sheet.csv"
+
+# calculated indices
+indices_file = "../data/fdom_data/matrices/processed_data/TURNT_fDOM_indices_out.csv"
+
+# processed eems
+eems_file = "../data/fdom_data/run1.rds"
+
+
+samples = fread(metadata_file)
+run = fread(run_map_file)
+indices = fread(indices_file)
+eems = readRDS(eems_file)
+
+turnt_clrs = c(
+  control = "#73d9f0",
+  nutrient = "#f7b301",
+  recharge = "#eb773e",
+  blank = "gray"
+  )
+
+
+```
+
+
+
+```{r Organize, results = 'hide'}
+
+# merge fDOM run sheet data with sample metadata
+setnames(indices, "UniqueID", "MooreaCode")
+dat = merge.data.table(indices, samples, by = "MooreaCode")
+
+# organize variables
+index_columns = c(
+  "CobleA",
+  "CobleB",
+  "CobleC",
+  "CobleM",
+  "CobleT",
+  "Fpeak",
+  "Stedmon_D",
+  "Optical_Brighteners",
+  "dieselBandII",
+  "Petroleum",
+  "Lignin",
+  "BIX",
+  "HIX",
+  "FI",
+  "M_to_C"
+  )
+
+stages = unique(dat$stage)
+
+treatments = unique(dat$treatment)
+
+
+
+```
+
+
+## Ordinate samples based on indices
+
+```{r}
+
+# function for NMDS ordination of the fDOM data
+ordinate_dt = function(dt = dat,
+                       cols = index_columns,
+                       meta = samples,
+                       scale_vals=F){
+  set.seed("2022")
+  
+  ord_dat = as.matrix(dt[ , ..cols])
+  
+  if(isTRUE(scale_vals)){
+   ord_dat = scale(ord_dat)
+  }
+  
+  row.names(ord_dat) = dt$MooreaCode
+  
+  # ordinate
+  raw_ord = metaMDS(ord_dat)
+  
+  ord_points = as.data.table(raw_ord$points, keep.rownames = T)
+  setnames(ord_points, "rn", "MooreaCode")
+  
+  # organize output
+  met_ord = merge(ord_points, meta, by = "MooreaCode", all.x = T)
+  
+  return(list(met_ord = met_ord, raw_ord = raw_ord))
+}
+
+
+
+
+```
+
+### All Sample Ordination
+Ordinate all samples together, regardless of stage. This puts all samples from exudations and remins into a common context. This may not be very useful. The remins and exudations are pretty different. Doing it anyways just to see what it looks like.
+
+```{r ord1, results = 'hide'}
+
+include_indices = 
+  c(
+    "CobleA",
+    "CobleB",
+    "CobleT"
+  )
+
+all_ord = ordinate_dt(dt = dat,
+            cols = include_indices,
+            meta = samples)
+```
+
+
+```{r}
+
+# all samples from multiple exudations
+p_all_stages = ggplot(all_ord$met_ord, aes(
+  x = MDS1,
+  y = MDS2,
+  color = treatment,
+  shape = stage
+)) +
+  geom_point(size = 3) +
+  scale_color_manual(values = turnt_clrs)+
+  labs(title = "All samples")
+
+p_all_stages
+
+# plot for each treatment
+
+p_facet_stages = lapply(treatments, function(trt){
+  
+  alphas = rep(0.1, 4)
+  names(alphas) = treatments
+  alphas[trt] = 1
+  
+  p = ggplot(all_ord$met_ord, aes(
+  x = MDS1,
+  y = MDS2,
+  color = treatment,
+  shape = stage
+)) +
+  geom_point(size = 3, aes(alpha = treatment))+
+  scale_alpha_manual(values = alphas)+
+  scale_color_manual(values = turnt_clrs)+
+  labs(title = trt)
+  
+  return(p)
+})
+
+p_facet_stages
+
+```
+
+
+### Separate ordinations (Exudations and Remins)
+
+Ordinate exudation and remineralization samples separately.These comparisons probably make more sense. These plots show the same replicates before and after something happened (either 4 day treatment or 1 day remin).
+
+
+```{r ord2, results = 'hide'}
+# both exudations
+exud_ord = ordinate_dt(dt = dat[stage %in% c("exudation_1", "exudation_2"),],cols = include_indices)
+
+# individual exudations
+ex1_ord = ordinate_dt(dt = dat[stage %in% c("exudation_1"),])
+ex2_ord = ordinate_dt(dt = dat[stage %in% c("exudation_2"),])
+
+# both remins
+rem_ord = ordinate_dt(dt = dat[stage %in% c("remin_T0", "remin_TF"),],cols = include_indices)
+
+
+# individual remins
+rT0_ord = ordinate_dt(dt = dat[stage %in% c("remin_T0"),])
+rTF_ord = ordinate_dt(dt = dat[stage %in% c("remin_TF"),])
+
+```
+
+How do individual replicates change from exudation 1 (pre-treatment) to exudation 2 (post-treatment)?
+
+```{r}
+
+# both exudations
+p_exudations = ggplot(exud_ord$met_ord, aes(
+  x = MDS1,
+  y = MDS2,
+  color = treatment,
+  shape = stage,
+  group = rep
+)) +
+  geom_point(size = 3) +
+  geom_path(arrow = arrow(type = "closed", angle = 10), alpha = 0.5)+
+  scale_color_manual(values = turnt_clrs)+
+  labs(title = "Exudations")
+
+
+p_exudations
+
+ggsave("plots/fdom/exudations_ord.png",
+       plot = p_exudations,
+       width = 7, height = 6)
+
+
+# highlight each treatment
+lapply(treatments, function(trt){
+  
+  alphas = rep(0.1, 4)
+  names(alphas) = treatments
+  alphas[trt] = 1
+  
+  
+  p_exudations = ggplot(exud_ord$met_ord, aes(
+  x = MDS1,
+  y = MDS2,
+  color = treatment,
+  shape = stage,
+  group = rep
+)) +
+  geom_point(size = 3, aes(alpha = treatment)) +
+  geom_path(arrow = arrow(type = "closed", angle = 10),
+            aes(alpha = treatment))+
+    
+  scale_alpha_manual(values = alphas)+
+ 
+  scale_color_manual(values = turnt_clrs)+
+  labs(title = trt)
+
+})
+
+
+
+```
+
+
+
+How do individual replicates change from T0 remin (right after adding microbes) to TF remin (after microbes have eaten DOM)?
+
+
+
+```{r}
+# both remins
+p_remins = ggplot(rem_ord$met_ord, aes(
+  x = MDS1,
+  y = MDS2,
+  color = treatment,
+  shape = stage,
+  group = rep
+)) +
+  geom_point(size = 3) +
+  geom_path(arrow = arrow(type = "closed", angle = 10), alpha = 0.5)+
+  scale_color_manual(values = turnt_clrs)+
+  scale_shape_manual(values = c(19,2))+
+
+  labs(title = "Remins")
+
+p_remins
+
+ggsave("plots/fdom/remins_ord.png",
+       plot = p_remins,
+       width = 7, height = 6)
+       
+
+lapply(treatments, function(trt){
+  
+  alphas = rep(0.1, 4)
+  names(alphas) = treatments
+  alphas[trt] = 1
+  
+  ggplot(rem_ord$met_ord,
+         aes(
+           x = MDS1,
+           y = MDS2,
+           color = treatment,
+           shape = stage,
+           group = rep
+         )) +
+    geom_point(size = 3, aes(alpha = treatment)) +
+    geom_path(arrow = arrow(type = "closed", angle = 10),
+              aes(alpha = treatment)) +
+    scale_alpha_manual(values = alphas) +
+    scale_color_manual(values = turnt_clrs) +
+    scale_shape_manual(values = c(19,2))+
+    labs(title = trt)
+
+})
+
+
+
+
+
+```
+
+### Individual stage ordinations
+
+```{r}
+ggplot(ex1_ord$met_ord,
+       aes(
+         x = MDS1,
+         y = MDS2,
+         color = treatment,
+         shape = stage,
+         group = rep
+       )) +
+  geom_point(size = 3) +
+  scale_color_manual(values = turnt_clrs) +
+  labs(title = "Exudation 1")
+
+ggplot(ex2_ord$met_ord,
+       aes(
+         x = MDS1,
+         y = MDS2,
+         color = treatment,
+         shape = stage,
+         group = rep
+       )) +
+  geom_point(size = 3) +
+  scale_color_manual(values = turnt_clrs) +
+  labs(title = "Exudation 2")
+
+
+
+ggplot(rT0_ord$met_ord,
+       aes(
+         x = MDS1,
+         y = MDS2,
+         color = treatment,
+         shape = stage,
+         group = rep
+       )) +
+  geom_point(size = 3) +
+  scale_color_manual(values = turnt_clrs) +
+  labs(title = "Remin T0")
+
+ggplot(rTF_ord$met_ord,
+       aes(
+         x = MDS1,
+         y = MDS2,
+         color = treatment,
+         shape = stage,
+         group = rep
+       )) +
+  geom_point(size = 3) +
+  scale_color_manual(values = turnt_clrs) +
+  labs(title = "Remin TF")
+
+
+
+
+```
+
+
+## Boxplots
+
+These are comparative boxplots for each fDOM index. Two pieces of information pop out for each index:
+
+1. How do index values compare to each other across treatments at a specific stage (e.g. Control vs. Remin @ exudation 2)?
+2. How do index values change from one stage to the next (e.g. Remin T0 vs. Remin TF)?
+
+
+```{r}
+
+
+# function for basic boxplots
+boxplot_compare = function(s, indx, dt, ymax){
+ 
+  plot_dat = subset(dt, stage %in% s)
+
+  ggplot(plot_dat, aes_string(x = "treatment", y = indx, color = "treatment"))+
+    geom_boxplot()+
+    scale_color_manual(values = turnt_clrs)+
+    labs(x = "")+
+    ylim(0, ymax)+
+    theme(legend.position = "none",
+          axis.text.x = element_text(angle = 90))
+  
+   
+}
+
+
+```
+
+
+
+```{r}
+stages = unique(dat$stage)
+
+
+# generate boxplots for each stage of the experiment
+all_boxplots = lapply(index_columns, function(i) {
+  an_index = i
+  
+  max_value = max(dat[[an_index]])
+  
+  plots = lapply(stages,
+                 FUN = boxplot_compare,
+                 dt = dat,
+                 indx = an_index,
+                 ymax = max_value)
+  names(plots) = stages
+  return(plots)
+})
+
+
+names(all_boxplots) = index_columns
+
+
+```
+
+
+
+Expectations
+
+**Exudation 1 (pre-treatment)**
+
+These Turbinaria were brought in from the field. Blanks, which have no tubrinaria, should be different from the other treatments. Control and Nutrient should be similar, because no nutrients had not been added at this point. Recharge might be different, because those individuals were collected close to osmocote diffusers.
+
+**Exudation 2 (post-treatment)**
+
+After the osmocote treatment, we expect to see differences between Control, Nutrient, and Recharge. 
+
+
+**Remin T0 (pre-remin)**
+
+We expect the initial remin values to look a lot like the Exudation 2 values. Water from exudation 2 was pooled by treatment and then subsampled into 'technical' replicates. 
+
+**Remin TF (post-remin)**
+
+We expect fdom index values to decrease as compounds are broken down into CO2. Some indices may increase if they are correlated with breakdown products.
+
+```{r}
+indx_plots = lapply(index_columns, function(indx){
+  
+  plot_grid(plotlist = all_boxplots[[indx]],
+            ncol = 4,
+            labels = stages)
+})
+
+names(indx_plots) = index_columns
+
+indx_plots
+
+for(ind in include_indices){
+ ggsave(paste0("plots/fdom/box_",ind,".png"),
+        plot = indx_plots[[ind]],
+        width = 8, height = 4)
+}
+
+```
+## Pair plots
+
+Check for correlation between indices
+
+```{r}
+ggpairs(dat, columns = 2:16, aes(color = treatment))
+ggsave("plots/fdom/big_pairs.pdf",
+       height = 15, width = 15)
+
+
+ggpairs(dat, columns = c(2,3,6), aes(color = treatment))
+ggsave("plots/fdom/selected_pairs.png",
+       height = 10, width = 10)
+```
+# check raw eem plots
+```{r}
+  eems_ps = lapply(1:length(eems$EEMs), function(i){
+    plot_eem(eems$EEMs[[i]],
+             sample_name = samples[MooreaCode %in% eems$indices$UniqueID[i],
+                                   paste(stage, rep)],
+             rows_as_names = T)
+    
+  })
+  
+  pdf(paste0("plots/fdom/",eems$indices$run_name[[1]],"_eem_plots.pdf"))
+  print(eems_ps)
+  dev.off()
+
+```
+
