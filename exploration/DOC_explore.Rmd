@@ -1,0 +1,20 @@
+---
+title: "TURNT - DOC explore"
+output: 
+  html_document:
+    toc: true
+    toc_depth: 3
+    toc_float: true
+    smooth_scroll: true 
+    fig_width: 10
+    code_folding: hide  
+date: "2023-01-05"
+---
+
+We got DOC data back from Ralph on 1/4/23. Let's take a look!
+
+
+```{r}
+  
+```
+
